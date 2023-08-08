@@ -1,0 +1,18 @@
+<svg width="58" height="56" viewBox="0 0 58 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path id="Ellipse 7" d="M57 28C57 42.8789 44.4973 55 29 55C13.5027 55 1 42.8789 1 28C1 13.1211 13.5027 1 29 1C44.4973 1 57 13.1211 57 28Z" fill="url(#paint0_angular_38_19)" fill-opacity="0.79" stroke="url(#paint1_linear_38_19)" stroke-width="2"/>
+<defs>
+<radialGradient id="paint0_angular_38_19" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(29.4328 -13.7971) rotate(49.0359) scale(92.4318 90.7529)">
+<stop offset="0.11393" stop-color="white"/>
+<stop offset="0.151397" stop-color="white"/>
+<stop offset="0.294609" stop-color="#545454"/>
+<stop offset="0.618302" stop-color="white"/>
+<stop offset="0.669902" stop-color="white"/>
+<stop offset="0.908152" stop-color="#545454"/>
+</radialGradient>
+<linearGradient id="paint1_linear_38_19" x1="-9.52239" y1="38.5507" x2="69.2537" y2="38.5507" gradientUnits="userSpaceOnUse">
+<stop stop-color="#545454"/>
+<stop offset="0.509818" stop-color="white"/>
+<stop offset="1" stop-color="#545454"/>
+</linearGradient>
+</defs>
+</svg>

@@ -1,0 +1,13 @@
+<svg width="77" height="77" viewBox="0 0 77 77" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="carbon:add-alt">
+<path id="Vector" d="M38.5 9.625C54.3812 9.625 67.375 22.6187 67.375 38.5C67.375 54.3812 54.3812 67.375 38.5 67.375C22.6187 67.375 9.625 54.3812 9.625 38.5C9.625 22.6187 22.6187 9.625 38.5 9.625ZM38.5 4.8125C19.9719 4.8125 4.8125 19.9719 4.8125 38.5C4.8125 57.0281 19.9719 72.1875 38.5 72.1875C57.0281 72.1875 72.1875 57.0281 72.1875 38.5C72.1875 19.9719 57.0281 4.8125 38.5 4.8125Z" fill="url(#paint0_linear_12_84)"/>
+<path id="Vector_2" d="M57.75 36.0938H40.9062V19.25H36.0938V36.0938H19.25V40.9062H36.0938V57.75H40.9062V40.9062H57.75V36.0938Z" fill="#39C4E2"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_12_84" x1="72" y1="20.5" x2="15.5" y2="22.5" gradientUnits="userSpaceOnUse">
+<stop stop-color="#39C4E2"/>
+<stop offset="0.447917" stop-color="#0558F9" stop-opacity="0.82"/>
+<stop offset="1" stop-color="#39C4E2" stop-opacity="0.24"/>
+</linearGradient>
+</defs>
+</svg>
