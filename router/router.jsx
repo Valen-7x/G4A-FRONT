@@ -8,6 +8,11 @@ import Games from "../src/componentes/Games";
 import ProtectedLogin from "./ProtectedLogin";
 import Details from "../src/componentes/Details";
 
+import Register from "../src/componentes/Register";
+import SignIn from "../src/pages/SignIn";
+import VerifyCode from '../src/componentes/VerifyCode';
+import ProtectedRouteUser from "../router/protectedUser";
+import ProtectedRouteNotUser from "../router/protectedNotUser"
 const router = createBrowserRouter([
     {
         path:"/",
@@ -23,11 +28,36 @@ const router = createBrowserRouter([
               },
               {
                 path:'/games',
-                element: <Games/>
+                element: 
+                <ProtectedRouteNotUser>
+                     <Games/>
+                </ProtectedRouteNotUser>
             },
             {
                 path:'/details',
                 element: <Details/>
+            },
+            {
+                path: "/register",
+                element: 
+                <ProtectedRouteUser>
+                    <Register/>
+                </ProtectedRouteUser>
+                
+            },
+            {
+                path:'/verifyAccount',
+                element: 
+                <ProtectedRouteUser>
+                    <VerifyCode/>
+                </ProtectedRouteUser>
+            },
+            {
+                path: "/signin",
+                element:
+                <ProtectedRouteUser>
+                    <SignIn/>
+                </ProtectedRouteUser>
             },
         ]
     },
