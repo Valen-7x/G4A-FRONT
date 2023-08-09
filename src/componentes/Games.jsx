@@ -7,7 +7,7 @@ import axios from "axios"; // Importa Axios
 export default function Games() {
   const [games, setGames] = useState([]); // Estado para los juegos
   const [currentPage, setCurrentPage] = useState(1); // Estado para la página actual
-  const [gamesPerPage] = useState(12); // Número de juegos por página
+  const [gamesPerPage] = useState(8); // Número de juegos por página
 
   useEffect(() => {
     // Hacer una llamada a la API para obtener los datos de los juegos
