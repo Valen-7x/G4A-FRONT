@@ -61,16 +61,16 @@ export default function Index() {
           </b>
         </h1>
         <div className="flex md:grid-cols-2 xl:flex items-center justify-around lg:justify-between flex-wrap gap-5">
-          {games.map((game) => (
-            <Card
-              key={game._id}
-              img={game.header_image}
-              title={game.name}
-              category={game.genres.map((genre) => genre.description).join(", ")}
-              price={game.price}
-              onClick={() => handleGameClick(game)}
-            />
-          ))}
+        {games.slice(0, 3).map((game) => (
+    <Card
+      key={game._id}
+      img={game.header_image}
+      title={game.name}
+      category={game.genres.map((genre) => genre.description).join(", ")}
+      price={game.price}
+      onClick={() => handleGameClick(game)}
+    />
+  ))}
           <Link to="/games" className="relative">
             <img
               src="https://s3-alpha-sig.figma.com/img/5d71/7c4a/331cc65c47447ded390aec1122aaf642?Expires=1691971200&Signature=YEMfTCCHpvnzyeQpkeG4wNzhYHmS8t6Os4izMifoaATtUB8-eHgMPtmI8lGc2s8ohq2tTpIV8h-HokE7KOPO7PB1eB6wDmo8FDqYAhEll8jr0VmKcV9aJqpRXGFf9Y7c7CMPKaJ1K481H7OvDUrW4TmGji5LbgWATWtmtkBCcgk9mJGEi~JpAik8ZjWKRtNDqiXaH3j60EyztBqss2jNRb-ZmpJFC9Cc3roPiCsF1Vlx~ABtm8IXSDzO-4bnY~xqYIut9DvKRItCb4V9mybDzakGSsXXOqpN5co9EKqyqu1aeQ5L-xhp3aX26KZ5Xf6ZjFkqJqk6FzURmIolETHKaw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"

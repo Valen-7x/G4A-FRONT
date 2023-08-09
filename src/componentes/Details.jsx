@@ -1,32 +1,48 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Sidebar from "./Sidebar";
+import { useParams } from "react-router-dom";
 
 export default function Details() {
-  const [selectedImage, setSelectedImage] = useState(
-    "https://cdn.akamai.steamstatic.com/steam/apps/220/header.jpg?t=1666823596"
-  );
+  const { id } = useParams();
+  const [data, setData] = useState({});
+  const [selectedImage, setSelectedImage] = useState("");
+  const [images, setImages] = useState([])
 
-  const smallImages = [
-    "https://cdn.akamai.steamstatic.com/steam/apps/220/0000001871.600x338.jpg?t=1666823596",
-    "https://cdn.akamai.steamstatic.com/steam/apps/220/0000001869.600x338.jpg?t=1666823596",
-    "https://cdn.akamai.steamstatic.com/steam/apps/220/0000001868.600x338.jpg?t=1666823596",
-    "https://cdn.akamai.steamstatic.com/steam/apps/220/0000001866.600x338.jpg?t=1666823596",
-  ];
+  useEffect(() => {
+    fetchData();
+  }, [id]);
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch(`http://localhost:8080/api/games/${id}`);
+      const responseData = await response.json();
+      setData(responseData);
+      setSelectedImage(responseData.game.header_image); // Aquí accedemos a responseData.game.header_image
+      setImages(responseData.game.screenshots)
+    } catch (error) {
+      console.error("Error fetching data >>>", error);
+    }
+  };
+  console.log("data->", data);
+  const game = data.game
+  console.log("data->",game);
+  console.log(images);
+  console.log("selectedimage--->",selectedImage);
 
   const handleImageClick = (image) => {
     setSelectedImage(image);
   };
 
   const handlePrevImage = () => {
-    const currentIndex = smallImages.indexOf(selectedImage);
-    const newIndex = (currentIndex - 1 + smallImages.length) % smallImages.length;
-    setSelectedImage(smallImages[newIndex]);
+    const currentIndex = images.indexOf(selectedImage);
+    const newIndex = (currentIndex - 1 + images.length) % images.length;
+    setSelectedImage(images[newIndex]);
   };
 
   const handleNextImage = () => {
-    const currentIndex = smallImages.indexOf(selectedImage);
-    const newIndex = (currentIndex + 1) % smallImages.length;
-    setSelectedImage(smallImages[newIndex]);
+    const currentIndex = images.indexOf(selectedImage);
+    const newIndex = (currentIndex + 1) % images.length;
+    setSelectedImage(images[newIndex]);
   };
 
   return (
@@ -35,7 +51,7 @@ export default function Details() {
       <div className="flex flex-col">
         <div className="lg:w-[51rem] h-[80vh] lg:h-[50vh] flex flex-col h-[40vh] lg:flex-row justify-center items-center w-screen ml-[3rem]">
           <img
-            src={selectedImage}
+            src={typeof selectedImage==="object" && "path_full" in selectedImage? selectedImage.path_full : selectedImage} 
             className="h-[15rem] w-[20rem] lg:h-[50vh] lg:w-[40rem] rounded-[5px]"
             alt="img"
           />
@@ -57,24 +73,29 @@ export default function Details() {
               </div>
               <div className="w-[100%] h-auto flex flex-col justify-between items-center gap-7">
                 <h1 className="lg:text-[1.8rem] text-[1.2rem] font-bold text-[white]"></h1>
-                <p className="text-[white] text-[0.7rem]"></p>
+                <video className="text-[white] text-[0.7rem]">
+
+                </video>
               </div>
             </div>
           </div>
         </div>
-        <div className="flex ml-[3rem] flex mt-[1rem] gap-5">
+        <div className="flex ml-[1rem] flex mt-[1rem] gap-5">
         <button onClick={handleNextImage}>→</button>
-          {smallImages.map((image, index) => (
+        <div className="flex overflow-x-scroll md:w-[60%]">
+        {images.map((image, index) => (
             <img
               key={index}
               className={`w-[5rem] h-[3rem] ${
                 selectedImage === image && "border-2 border-blue-500"
               }`}
-              src={image}
+              src={image.path_full}
               alt={`image-${index}`}
               onClick={() => handleImageClick(image)}
             />
           ))}
+        </div>
+          
            <button className="" onClick={handlePrevImage}> ← </button>
          
         </div>

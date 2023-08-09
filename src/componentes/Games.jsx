@@ -42,7 +42,7 @@ export default function Games() {
         <div className="flex mt-[2rem] md:grid-cols-2 xl:flex items-center justify-around lg:justify-between flex-wrap gap-5">
           {currentGames.map((game) => (
             <Card
-              key={game._id}
+              id={game._id}
               img={game.header_image}
               title={game.name}
               category={game.category}
