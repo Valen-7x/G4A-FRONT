@@ -7,7 +7,7 @@ import axios from "axios"; // Importa Axios
 export default function Games() {
   const [games, setGames] = useState([]); // Estado para los juegos
   const [currentPage, setCurrentPage] = useState(1); // Estado para la página actual
-  const [gamesPerPage] = useState(10); // Número de juegos por página
+  const [gamesPerPage] = useState(12); // Número de juegos por página
 
   useEffect(() => {
     // Hacer una llamada a la API para obtener los datos de los juegos
@@ -51,6 +51,17 @@ export default function Games() {
           ))}
         </div>
         <div className="flex justify-center mt-4">
+        <button
+            onClick={() => paginate(currentPage - 1)}
+            className={`px-4 py-2 rounded-lg mr-2 ${
+              currentPage === 1
+                ? 'bg-gray-300 text-gray-700 cursor-not-allowed'
+                : 'bg-blue-500 text-white'
+            }`}
+            disabled={currentPage === 1}
+          >
+            Prev
+          </button>
           {/* Botones de paginación */}
           {Array.from({ length: Math.ceil(games.length / gamesPerPage) }, (_, index) => (
             <button
