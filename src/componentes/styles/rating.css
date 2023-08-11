@@ -1,0 +1,6 @@
+.ratingsCircle{
+    fill:none;
+    stroke: red;
+    stroke-width: 20px;
+    stroke-dasharray: 400;
+}

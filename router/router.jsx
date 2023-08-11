@@ -2,12 +2,8 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../src/layouts/Main";
 import App from "../src/App";
 import NotAllowed from "../src/componentes/NotAllowed";
-import NotAllowedProtected from "./NotAllowedProtected";
-import ProtectedLoger from "./ProtectedLoger";
 import Games from "../src/componentes/Games";
-import ProtectedLogin from "./ProtectedLogin";
 import Details from "../src/componentes/Details";
-
 import Register from "../src/componentes/Register";
 import SignIn from "../src/pages/SignIn";
 import VerifyCode from "../src/componentes/VerifyCode";
