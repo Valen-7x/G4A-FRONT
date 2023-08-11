@@ -20,16 +20,7 @@ const Card = (props) => {
       <div className="text-white text-lg font-semibold ">
         {firstWordOfTitle}
       </div>
-      {/* Botón para añadir al carrito */}
-      <button
-  className="mt-2 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md"
-  onClick={() => {
-    addToCart({ ...props }); // Agregar el juego al carrito
-    setInCart(true); // Cambiar el estado para mostrar la tarjeta en el carrito
-  }}
->
-  + Add to Cart
-</button>
+    
     </div>
   );
 };
