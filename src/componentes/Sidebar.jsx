@@ -16,19 +16,21 @@ const Sidebar = () => {
   return (
     <>
       <div
-        className={`w-[90%] md:w-[40%] fixed lg:static top-0 rounded-2xl transform transition-transform lg:w-[15rem] h-full text-gray-400 backdrop-blur-sm bg-black/50 shadow-2xl lg:shadow-none z-50 ${
-          showSidebar ? "translate-x-0" : "-translate-x-[90%] lg:translate-x-0"
+        className={`w-[40%] md:w-[40%] fixed lg:static top-0
+         rounded-[0_1rem_1rem_0] transform transition-transform
+          lg:w-[10rem] h-full text-gray-400 backdrop-blur-sm bg-green-900 shadow-2xl lg:shadow-none z-50 ${
+          showSidebar ? "translate-x-0" : "-translate-x-[100%] lg:translate-x-0"
         } ${showSidebar ? "md:w-[40%]" : ""}`}
       >
         {/* Button mobile */}
         <button
           onClick={() => setShowSidebar(!showSidebar)}
-          className="lg:hidden fixed  bottom-4 right-4 bg-[#E58D27] p-[0.7rem] rounded-full text-xl"
+          className="lg:hidden fixed bottom-4 right-[-3rem] bg-[#E58D27] p-[0.7rem] rounded-full text-xl"
         >
           {showSidebar ? <RiCloseLine /> : <RiFilter3Line />}
         </button>
 
-        <div className="flex flex-col items-center mt-[1rem] gap-10 pr-[1rem] p-4 mb-4">
+        <div className="flex flex-col mt-[1rem] gap-10">
           <Link
             to="/"
             className="flex gap-4 items-center transition-all duration-300 ease-in-out transform hover:scale-105"
