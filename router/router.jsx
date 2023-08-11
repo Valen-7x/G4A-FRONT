@@ -31,7 +31,7 @@ const router = createBrowserRouter([
                 </ProtectedRouteNotUser>
             },
             {
-                path:'/details',
+                path:'/details/:id',
                 element: <Details/>
             },
             {
