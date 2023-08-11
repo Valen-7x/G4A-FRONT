@@ -5,12 +5,16 @@ import Search from "./Search";
 import Card from "./Card";
 
 export default function Games() {
+
   const [games, setGames] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [gamesPerPage] = useState(10);
   const [selectedCategories, setSelectedCategories] = useState(new Set());
   const [searchText, setSearchText] = useState("");
   const [cart, setCart] = useState([]); // Agregamos el estado searchText aquí
+
+
+
   useEffect(() => {
     axios
       .get("http://localhost:8080/api/games/") // Cambia la URL a tu API
@@ -123,6 +127,33 @@ export default function Games() {
               </button>
             )
           )}
+
+        <button
+            onClick={() => paginate(currentPage - 1)}
+            className={`px-4 py-2 rounded-lg mr-2 ${
+              currentPage === 1
+                ? 'bg-gray-300 text-gray-700 cursor-not-allowed'
+                : 'bg-blue-500 text-white'
+            }`}
+            disabled={currentPage === 1}
+          >
+            Prev
+          </button>
+          {/* Botones de paginación */}
+          {Array.from({ length: Math.ceil(games.length / gamesPerPage) }, (_, index) => (
+            <button
+              key={index}
+              onClick={() => paginate(index + 1)}
+              className={`mr-2 px-4 py-2 rounded-lg ${
+                currentPage === index + 1 ? 'bg-blue-500 text-white' : 'bg-gray-300 text-gray-700'
+              }`}
+            >
+              {index + 1}
+            </button>
+          ))}
+          
+          {/* Botón Next */}
+
           <button
             onClick={() => paginate(currentPage + 1)}
             className={`px-4 py-2 rounded-lg ${

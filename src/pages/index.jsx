@@ -74,7 +74,7 @@ export default function Index() {
           <Link to="/games" className="relative">
             <img
               src="https://s3-alpha-sig.figma.com/img/5d71/7c4a/331cc65c47447ded390aec1122aaf642?Expires=1691971200&Signature=YEMfTCCHpvnzyeQpkeG4wNzhYHmS8t6Os4izMifoaATtUB8-eHgMPtmI8lGc2s8ohq2tTpIV8h-HokE7KOPO7PB1eB6wDmo8FDqYAhEll8jr0VmKcV9aJqpRXGFf9Y7c7CMPKaJ1K481H7OvDUrW4TmGji5LbgWATWtmtkBCcgk9mJGEi~JpAik8ZjWKRtNDqiXaH3j60EyztBqss2jNRb-ZmpJFC9Cc3roPiCsF1Vlx~ABtm8IXSDzO-4bnY~xqYIut9DvKRItCb4V9mybDzakGSsXXOqpN5co9EKqyqu1aeQ5L-xhp3aX26KZ5Xf6ZjFkqJqk6FzURmIolETHKaw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
-              className="relative w-[150px] xl:w-[12rem] h-72 lg:h-64 object-cover rounded-2xl"
+              className="relative w-[200px] xl:w-[12rem] h-72 lg:h-64 object-cover rounded-2xl"
             />
             <b>
               <h3 className="absolute text-white top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-3xl object-cover rounded-2xl">
