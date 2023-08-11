@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link as Anchor, useNavigate } from 'react-router-dom';
 import Search from './Search';
-
+import { Link } from 'react-router-dom';
 
 
 let user = JSON.parse(localStorage.getItem("user"))
@@ -12,7 +12,7 @@ let role = user?.role
 let userEmail = user?.email
 let photoUser = user?.photo
 
-function NavBar() {
+function NavBar({cartCount}) {
   let token = localStorage.getItem('token');
   console.log(token);
   const [isOpen, setIsOpen] = useState(false);
@@ -42,8 +42,16 @@ function NavBar() {
                 className="flex items-center m-[21px] w-[4rempx] h-[50px] md:h-[60px] md:mt-[27px] sm:mr-[0rem] rounded-2xl"
                 src="public\Captura de pantalla (101).png"
                 alt="Logo" />
+            
             </div>
-          <img className='w-[4rem] mb-[0rem] sm:mb-[0]' src="public\oPh3qdq.png" alt="" />
+            <div className='flex gap-5'>
+            <Link to="/store">
+          <img className="hover:scale-150 green" src="public\Vector (1).svg" alt="" />
+          {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
+        </Link>
+            <img className='w-[4rem] mb-[0rem] sm:mb-[0] ' src="public\oPh3qdq.png" alt="" />
+
+            </div>
           </div>
         </div>
       

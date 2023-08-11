@@ -24,7 +24,7 @@ export default function Details() {
     }
   };
   console.log("data->", data);
-  const game = data.game
+  const game = data.game || {};
   console.log("data->",game);
   console.log(images);
   console.log("selectedimage--->",selectedImage);
@@ -82,7 +82,7 @@ export default function Details() {
         </div>
         <div className="flex ml-[1rem] flex mt-[1rem] gap-5">
         <button onClick={handleNextImage}>→</button>
-        <div className="flex overflow-x-scroll md:w-[60%]">
+        <div className="flex overflow-x-scroll md:w-[50%]">
         {images.map((image, index) => (
             <img
               key={index}
