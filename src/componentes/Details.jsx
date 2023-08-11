@@ -372,6 +372,9 @@ export default function Details() {
             </svg>
           </div>
         </div>
+
+        ----------aca abajo manda los comentarios---------
+
       </div>
     </div>
   );
