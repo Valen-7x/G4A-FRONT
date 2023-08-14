@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link as Anchor, useNavigate } from 'react-router-dom';
-import Search from './Search';
 import { Link } from 'react-router-dom';
 
 
@@ -45,12 +44,15 @@ function NavBar({cartCount}) {
             
             </div>
             <div className='flex gap-5'>
-            <Link to="/store">
+            <Link to="/market">
           <img className="hover:scale-150 green" src="public\Vector (1).svg" alt="" />
           {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
         </Link>
-            <img className='w-[4rem] mb-[0rem] sm:mb-[0] ' src="public\oPh3qdq.png" alt="" />
-
+        <Link to="/"> 
+        <img className='w-[4rem] mb-[0rem] sm:mb-[0] ' src="public\oPh3qdq.png" alt="" />
+        </Link>
+        
+           
             </div>
           </div>
         </div>
