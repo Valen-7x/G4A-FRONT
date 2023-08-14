@@ -6,7 +6,7 @@ import NotFound from "../src/componentes/NotFound";
 
 import Games from "../src/componentes/Games";
 import Details from "../src/componentes/Details";
-
+import Market from "../src/componentes/Market";
 import Register from "../src/componentes/Register";
 import SignIn from "../src/pages/SignIn";
 import VerifyCode from '../src/componentes/VerifyCode';
@@ -14,6 +14,7 @@ import ProtectedRouteUser from "../router/protectedUser";
 import ProtectedRouteNotUser from "../router/protectedNotUser"
 
 import AdminPanel from "../src/componentes/AdminPanel";
+
 const router = createBrowserRouter([
     {
         path:"/",
@@ -39,8 +40,12 @@ const router = createBrowserRouter([
                 </ProtectedRouteNotUser>
             },
             {
-                path:'/details',
+                path:'/details/:id',
                 element: <Details/>
+            },
+            {
+                path:'/market',
+                element: <Market/>
             },
             {
                 path: "/register",

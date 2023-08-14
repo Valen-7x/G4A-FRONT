@@ -121,7 +121,7 @@ const Sidebar = () => {
             className="flex gap-4 items-center transition-all duration-300 ease-in-out transform hover:scale-105"
           >
             <img className="w-[2.5rem]" src="public\Vector (1).svg" alt="" />
-            <h4 className="text-white text-lg">Market</h4>
+            <h4 className="text-white text-lg">Store</h4>
           </Link>
           <Link
             to="/contact"

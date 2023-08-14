@@ -156,8 +156,8 @@ export default function AdminPanel() {
               onChange={handlePropertyValueChange}
             />
             <div className="flex justify-between items-center my-2 w-2/3">
-            <button className="bg-green-200 text-green-500 hover:bg-green-500 hover:text-green-200 font-semibold w-1/4 p-1 rounded-sm " onClick={handleEditGame}>Edit</button>
-            <button className="bg-rose-200 text-rose-500 hover:bg-rose-500 hover:text-rose-200 font-semibold w-1/4 p-1 rounded-sm " onClick={handleDeleteGame}>Delete</button>
+            <button className="bg-green-200 text-green-500 hover:bg-green-500 hover:text-green-200 font-semibold w-1/4 p-1 rounded-xl " onClick={handleEditGame}>Edit</button>
+            <button className="bg-rose-200 text-rose-500 hover:bg-rose-500 hover:text-rose-200 font-semibold w-1/4 p-1 rounded-xl " onClick={handleDeleteGame}>Delete</button>
             </div>
             </>
         )}
