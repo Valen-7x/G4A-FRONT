@@ -9,6 +9,7 @@ import SignIn from "../src/pages/SignIn";
 import VerifyCode from '../src/componentes/VerifyCode';
 import ProtectedRouteUser from "../router/protectedUser";
 import ProtectedRouteNotUser from "../router/protectedNotUser"
+import Market from "../src/componentes/Market";
 
 const router = createBrowserRouter([
     {
@@ -31,7 +32,7 @@ const router = createBrowserRouter([
                 </ProtectedRouteNotUser>
             },
             {
-                path:'/details/${id}',
+                path:'/details/:id',
                 element: <Details/>
             },
             {
@@ -56,6 +57,12 @@ const router = createBrowserRouter([
                     <SignIn/>
                 </ProtectedRouteUser>
             },
+            {
+                path:"/market",
+                element:<ProtectedRouteNotUser>
+                        <Market/>
+                        </ProtectedRouteNotUser>
+            }
         ]
     },
           
