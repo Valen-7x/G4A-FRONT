@@ -2,10 +2,9 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../src/layouts/Main";
 import App from "../src/App";
 import NotAllowed from "../src/componentes/NotAllowed";
-import NotAllowedProtected from "./NotAllowedProtected";
-import ProtectedLoger from "./ProtectedLoger";
+import NotFound from "../src/componentes/NotFound";
+
 import Games from "../src/componentes/Games";
-import ProtectedLogin from "./ProtectedLogin";
 import Details from "../src/componentes/Details";
 
 import Register from "../src/componentes/Register";
@@ -13,6 +12,8 @@ import SignIn from "../src/pages/SignIn";
 import VerifyCode from '../src/componentes/VerifyCode';
 import ProtectedRouteUser from "../router/protectedUser";
 import ProtectedRouteNotUser from "../router/protectedNotUser"
+
+import AdminPanel from "../src/componentes/AdminPanel";
 const router = createBrowserRouter([
     {
         path:"/",
@@ -23,7 +24,11 @@ const router = createBrowserRouter([
                 element: <App/>
             },
             {
-                path: "/not-allow",
+                path: "*",
+                element:  <NotFound/> ,
+              },
+            {
+                path: "/NotAllow",
                 element:  <NotAllowed/> ,
               },
               {
@@ -58,6 +63,13 @@ const router = createBrowserRouter([
                 <ProtectedRouteUser>
                     <SignIn/>
                 </ProtectedRouteUser>
+            },
+            {
+                path: "/adminPanel",
+                element:
+                <ProtectedRouteNotUser>
+                    <AdminPanel/>
+                </ProtectedRouteNotUser>
             },
         ]
     },
