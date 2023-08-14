@@ -4,11 +4,13 @@ import App from "../src/App";
 import NotAllowed from "../src/componentes/NotAllowed";
 import Games from "../src/componentes/Games";
 import Details from "../src/componentes/Details";
+import Market from "../src/componentes/Market";
 import Register from "../src/componentes/Register";
 import SignIn from "../src/pages/SignIn";
 import VerifyCode from '../src/componentes/VerifyCode';
 import ProtectedRouteUser from "../router/protectedUser";
 import ProtectedRouteNotUser from "../router/protectedNotUser"
+
 
 const router = createBrowserRouter([
     {
@@ -35,6 +37,9 @@ const router = createBrowserRouter([
                 element: <Details/>
             },
             {
+                path:'/market',
+                element: <Market/>
+            },
                 path: "/register",
                 element: 
                 <ProtectedRouteUser>
