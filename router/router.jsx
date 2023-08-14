@@ -2,6 +2,8 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../src/layouts/Main";
 import App from "../src/App";
 import NotAllowed from "../src/componentes/NotAllowed";
+import NotFound from "../src/componentes/NotFound";
+
 import Games from "../src/componentes/Games";
 import Details from "../src/componentes/Details";
 import Market from "../src/componentes/Market";
@@ -11,6 +13,7 @@ import VerifyCode from '../src/componentes/VerifyCode';
 import ProtectedRouteUser from "../router/protectedUser";
 import ProtectedRouteNotUser from "../router/protectedNotUser"
 
+import AdminPanel from "../src/componentes/AdminPanel";
 
 const router = createBrowserRouter([
     {
@@ -22,7 +25,11 @@ const router = createBrowserRouter([
                 element: <App/>
             },
             {
-                path: "/not-allow",
+                path: "*",
+                element:  <NotFound/> ,
+              },
+            {
+                path: "/NotAllow",
                 element:  <NotAllowed/> ,
               },
               {
@@ -40,6 +47,7 @@ const router = createBrowserRouter([
                 path:'/market',
                 element: <Market/>
             },
+            {
                 path: "/register",
                 element: 
                 <ProtectedRouteUser>
@@ -60,6 +68,13 @@ const router = createBrowserRouter([
                 <ProtectedRouteUser>
                     <SignIn/>
                 </ProtectedRouteUser>
+            },
+            {
+                path: "/adminPanel",
+                element:
+                <ProtectedRouteNotUser>
+                    <AdminPanel/>
+                </ProtectedRouteNotUser>
             },
         ]
     },

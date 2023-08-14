@@ -70,8 +70,8 @@ const Sidebar = () => {
                   className="w-[50px] mb-2 sm:m-0"
                 />
                 <div className="flex flex-col ms-3">
-                  <p className="text-[15px] text-[#E58D27] font-bold">
-                    {localStorage.getItem('email')}
+                  <p className="text-[15px] text-white font-bold">
+                    {localStorage.getItem('name')}
                   </p>
                 </div>
               </div>
@@ -129,6 +129,13 @@ const Sidebar = () => {
           >
             <img className="w-[2.5rem]" src="public\bi_people.svg" alt="" />
             <h4 className="text-white text-lg">Contact</h4>
+          </Link>
+          <Link
+            to="/adminPanel"
+            className="flex gap-4 items-center transition-all duration-300 ease-in-out transform hover:scale-105"
+          >
+            <img className="w-[2.5rem]" src="public\bi_people.svg" alt="" />
+            <h4 className="text-white text-lg">Admin Panel</h4>
           </Link>
           <button
                   onClick={signout}
