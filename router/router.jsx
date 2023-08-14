@@ -7,7 +7,7 @@ import ProtectedLoger from "./ProtectedLoger";
 import Games from "../src/componentes/Games";
 import ProtectedLogin from "./ProtectedLogin";
 import Details from "../src/componentes/Details";
-import Store from "../src/componentes/Store";
+import Market from "../src/componentes/Market";
 
 const router = createBrowserRouter([
     {
@@ -31,8 +31,8 @@ const router = createBrowserRouter([
                 element: <Details/>
             },
             {
-                path:'/store',
-                element: <Store/>
+                path:'/market',
+                element: <Market/>
             },
         ]
     },

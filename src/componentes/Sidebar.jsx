@@ -44,7 +44,7 @@ const Sidebar = () => {
             <h4 className="text-white text-lg">Games</h4>
           </Link>
           <Link
-            to="/store"
+            to="/market"
             className="flex gap-4 items-center transition-all duration-300 ease-in-out transform hover:scale-105"
           >
             <img className="w-[2.5rem]" src="public\Vector (1).svg" alt="" />
