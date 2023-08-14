@@ -59,6 +59,14 @@ const Sidebar = () => {
             <img className="w-[2.5rem]" src="public\bi_people.svg" alt="" />
             <h4 className="text-white text-lg">Contact</h4>
           </Link>
+
+          <Link
+            to="/cart"
+            className="flex gap-4 items-center transition-all duration-300 ease-in-out transform hover:scale-105"
+          >
+            <img className="w-[2.5rem]" src="public\bi_people.svg" alt="" />
+            <h4 className="text-white text-lg">Cart</h4>
+          </Link>
         </div>
 
         <div className="pt-[2rem] lg:block hidden flex flex-col items-center">

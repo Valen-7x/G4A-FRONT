@@ -1,9 +1,11 @@
 // cartActions.js
-export const addToCart = (id) => {
+export const addToCart = (game) => {
   return {
     type: 'ADD_TO_CART',
     payload: {
-      id: String(id),
+      id: String(game.id),
+      game: game, // Store the entire game object
+      quantity: 1,
     },
   };
 };
@@ -29,4 +31,24 @@ export const removeFromCart = (id) => {
       type: 'CLEAR_CART',
     };
   };
+
+
+  export const increaseQuantity = (id, maxQuantity) => {
+    return {
+      type: 'INCREASE_QUANTITY',
+      payload: {
+        id: String(id),
+        maxQuantity,
+      },
+    };
+  };
   
+
+export const decreaseQuantity = (id) => {
+  return {
+    type: 'DECREASE_QUANTITY',
+    payload: {
+      id: String(id),
+    },
+  };
+};

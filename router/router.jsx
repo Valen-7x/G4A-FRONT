@@ -7,6 +7,8 @@ import ProtectedLoger from "./ProtectedLoger";
 import Games from "../src/componentes/Games";
 import ProtectedLogin from "./ProtectedLogin";
 import Details from "../src/componentes/Details";
+import Cart from "../src/pages/Cart";
+
 
 const router = createBrowserRouter([
     {
@@ -29,6 +31,11 @@ const router = createBrowserRouter([
                 path:'/details/:id',
                 element: <Details/>
             },
+            {
+                path:'/cart',
+                element: <Cart/>
+            },
+
         ]
     },
           

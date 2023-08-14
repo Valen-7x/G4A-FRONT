@@ -10,7 +10,7 @@ export default function Details() {
   const dispatch = useDispatch();
   const cartItems = useSelector(state => {
     console.log("Cart state >>>", state.cart);
-    console.log("Cart Items >>>", state.cart.items)
+    console.log("Cart Items :O >>>", state.cart.items)
     
     return state.cart.items;
   });
@@ -88,14 +88,13 @@ export default function Details() {
   const isItemInCart = cartItems.some(item => item.id === id);
   //    --------- HANDLERS ---------
   const handleAddToCart = () => {
-    const isItemInCart = cartItems.some(item => item.id === id);
-  
     if (isItemInCart) {
-      dispatch(removeFromCart(id)); // Remove by id
+      dispatch(removeFromCart(id));
     } else {
-      dispatch(addToCart(String(id))); // Add with game id
+      dispatch(addToCart({ id, game: data.game })); // Pass the entire game object
     }
   };
+  
   
 
   const handlePrevImage = () => {
