@@ -5,7 +5,7 @@ export default function NotAllowed() {
   return (
     <div>
       <h1 className="text-white relative top-[10rem]">Not Allowed :P</h1>
-      <div>
+      <div className="my-body">
         <div className="scene">
           <div className="floor"></div>
           <div className="cube">

@@ -5,6 +5,7 @@ export default function NotFound() {
   return (
     <div>
       <h1 className="text-white relative top-[10rem]">Not Found :P</h1>
+      <div className="my-body">
         <div className="scene">
           <div className="floor"></div>
           <div className="cube">
@@ -50,6 +51,7 @@ export default function NotFound() {
             </div>
           </div>
         </div>
+      </div>
     </div>
   );
 }

@@ -33,7 +33,7 @@ function NavBar({cartCount}) {
 
   return (
 
-    <nav className="flex items-center w-100vw w-[100%] h-[auto] justify-between md:w-[100%] md:h-[auto] relative z-20 ">
+    <nav className="flex items-center w-[100%] h-[auto] justify-between md:w-[100%] md:h-[auto] relative z-20 ">
       <div className="max-w-screen mx-auto px-4 w-[100%] z-10 bg-[#111827]">        
           <div className="flex flex-col sm:justify-between sm:flex sm:flex-row items-center">
             <div className="flex flex-col  sm:flex-row sm:justify-around  sm:gap-[11rem] items-center flex-shrink-0">
