@@ -10,6 +10,8 @@ import VerifyCode from "../src/componentes/VerifyCode";
 import ProtectedRouteUser from "../router/protectedUser";
 import ProtectedRouteNotUser from "../router/protectedNotUser";
 import PostComments from "../src/componentes/PostComments";
+import GamePage from "../src/pages/Comments";
+import ViewComments from "../src/componentes/ViewComments";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -25,14 +27,10 @@ const router = createBrowserRouter([
       },
       {
         path: "/games",
-        element: (
-          <ProtectedRouteNotUser>
-            <Games />
-          </ProtectedRouteNotUser>
-        ),
+        element: <Games />,
       },
       {
-        path: "/details",
+        path: "/details/:id",
         element: <Details />,
       },
       {
@@ -52,8 +50,12 @@ const router = createBrowserRouter([
         element: <SignIn />,
       },
       {
-        path: "/comment",
-        element: <PostComments />,
+        path: "/detalles/:id",
+        element: <GamePage />,
+      },
+      {
+        path: "/viewComments",
+        element: <ViewComments />,
       },
     ],
   },
