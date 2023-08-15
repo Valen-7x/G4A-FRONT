@@ -82,6 +82,7 @@ export default function Details() {
     }
   };
 
+
   const handleImageClick = (image) => {
     setSelectedImage(image);
   };
@@ -110,15 +111,20 @@ export default function Details() {
   };
   console.log("--- game info ---");
   console.log(gameInfo.platforms);
+  console.log('--- images ---')
+  console.log(propImages)
 
   //    --------- RENDER ---------
   return (
-    <div className={`bg-gray-900 lg:flex`}>
+    <div className={`bg-gray-900 lg:flex bg-no-repeat px-8 py-4`}
+    style={{
+      backgroundImage: `url(${propImages.background_image})`,
+    }}>
       <Sidebar />
-      <div className="flex flex-col p-4">
-        <div className="flex">
+      <div className={`flex flex-col p-4 max-w-[70rem]`}>
+        <div className="flex justify-center">
           <div
-            className={`flex flex-col items-center bg-[url(${propImages.background_image})]`}
+            className={`flex flex-col items-center`}
           >
             <img
               src={
@@ -127,16 +133,17 @@ export default function Details() {
                   ? selectedImage.path_full
                   : selectedImage
               }
-              className="min-h-[22rem] object-contain bg-black"
+              className="min-h-[22rem] max-h-[28rem] object-contain bg-black"
               alt="img"
             />
 
-            <div className="flex mt-[0.5rem] gap-3">
+            <div className="flex w-[100%] mt-[0.5rem] gap-3">
               <button
-                className="text-[white] bg-slate-700 w-[7%] rounded-lg"
+                className="text-[white] w-[7%] rounded-lg flex justify-center items-center"
                 onClick={handlePrevImage}
               >
-                <img src="../../public/arrows/angle-left-solid.svg"></img>
+                <img src="../../public/arrows/angle-left-solid.svg"
+                className="h-[3rem]"></img>
               </button>
 
               <div className="flex overflow-x-scroll w-[86%] text-[white]">
@@ -144,7 +151,7 @@ export default function Details() {
                   <img
                     key={index}
                     className={`h-[5rem] ${
-                      selectedImage === image && "border-2 border-blue-500"
+                      selectedImage === image && "border-2 border-orange-500"
                     }`}
                     src={image.path_full}
                     alt={`image-${index}`}
@@ -153,25 +160,28 @@ export default function Details() {
                 ))}
               </div>
               <button
-                className="text-[white] bg-slate-700 w-[7%] rounded-lg"
+                className="text-[white] w-[7%] rounded-lg flex justify-center items-center"
                 onClick={handleNextImage}
               >
-                <img src="../../public/arrows/angle-right-solid.svg"></img>
+                <img src="../../public/arrows/angle-right-solid.svg"
+                className="h-[3rem]"></img>
               </button>
             </div>
           </div>
+
           <div
             className="hidden lg:flex flex-col text-left items-center py-[0.25rem] px-[0.5rem] text-white
           bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-[#2222] via-[#8882] to-[#fff2]
           lg:w-[40vw]"
           >
+
             <img
               src={propImages.header_image}
               className=""
               alt="photo-profile"
             />
 
-            <p className="text-[#cce] text-[13px]">{`${gameInfo.short_description}`}</p>
+            <p className="text-[#cce] text-[13px] mt-3">{`${gameInfo.short_description}`}</p>
 
           <div className="flex gap-5">
           <div className="flex-col">
@@ -226,7 +236,7 @@ export default function Details() {
                   cx="80"
                   cy="80"
                   r="70"
-                  stroke-linecap="round"
+                  strokeLinecap="round"
                   style={{
                     strokeDasharray: `${(435 * gameInfo.rating) / 100}`,
                   }}
@@ -255,54 +265,69 @@ export default function Details() {
 
         <div className="h-[2px] bg-[#fff9] mx-4 my-2"></div>
 
-        <div
-          className="pt-4 pb-6 px-[5%]
-          bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-[#2222] via-[#8882] to-[#fff2]"
-        >
-          <div className="flex justify-between gap-1">
-            <h2 className="text-white mb-2">Buy {gameInfo.name}</h2>
-            <div className="flex gap-2">
-              <img
-                src="../../public/platforms/apple.svg"
-                className={`h-[20px]  ${
-                  gameInfo.platforms.mac == true ? "" : "hidden"
-                }`}
-              ></img>
-              <img
-                src="../../public/platforms/linux.svg"
-                className={`h-[20px]  ${
-                  gameInfo.platforms.linux == true ? "" : "hidden"
-                }`}
-              ></img>
-              <img
-                src="../../public/platforms/windows.svg"
-                className={`h-[20px]  ${
-                  gameInfo.platforms.windows == true ? "" : "hidden"
-                }`}
-              ></img>
+        <div className="flex gap-3">
+          <div
+            className="pt-4 pb-6 px-[5%] flex flex-col justify-between w-[100%]
+            bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-[#2222] via-[#8882] to-[#fff2]"
+          >
+            
+            <h2 className="text-white mb-2 text-left text-[20px] font-semibold">Buy {gameInfo.name}</h2>
+              
+            
+            <div className="flex justify-center gap-[5rem]">
+              <button
+                className="bg-lime-500 w-[18ch] font-semibold p-3 rounded-[4px]
+              shadow-[6px_6px_10px_-1px_rgba(0,0,0,0.6),6px_6px_10px_-1px_rgba(255,255,255,0.15)]
+              transition-all
+              hover:bg-lime-300"
+              onClick={() => handleAddToCart(id)}
+              >
+                {isItemInCart ? 'Remove from Cart' : `ARS $${gameInfo.price}`}
+              </button>
+
+              <button
+                className="bg-blue-500 w-[18ch] font-semibold p-3 rounded-[4px]
+              shadow-[6px_6px_10px_-1px_rgba(0,0,0,0.6),6px_6px_10px_-1px_rgba(255,255,255,0.15)]
+              transition-all
+              hover:bg-blue-300"
+              >
+                Add to wishlist
+              </button>
+            </div>                  
+
+            <div className="flex justify-between">
+              <p className="text-white">Supported platforms</p>
+              <div className="flex justify-end items-end gap-2">
+                  <img
+                    src="../../public/platforms/apple.svg"
+                    className={`h-[20px]  ${
+                      gameInfo.platforms.mac == true ? "" : "hidden"
+                    }`}
+                  ></img>
+                  <img
+                    src="../../public/platforms/linux.svg"
+                    className={`h-[20px]  ${
+                      gameInfo.platforms.linux == true ? "" : "hidden"
+                    }`}
+                  ></img>
+                  <img
+                    src="../../public/platforms/windows.svg"
+                    className={`h-[20px]  ${
+                      gameInfo.platforms.windows == true ? "" : "hidden"
+                    }`}
+                  ></img>
+                </div>
             </div>
           </div>
-          <div className="flex justify-center gap-[5rem]">
-            <button
-              className="bg-lime-500 w-[18ch] font-semibold p-3 rounded-[4px]
-            shadow-[6px_6px_10px_-1px_rgba(0,0,0,0.6),6px_6px_10px_-1px_rgba(255,255,255,0.15)]
-            transition-all
-            hover:bg-lime-300"
-            onClick={() => handleAddToCart(id)}
-            >
-              {isItemInCart ? 'Remove from Cart' : `ARS $${gameInfo.price}`}
-            </button>
+          <div 
+        className="text-white text-left
+        p-4 w-[100%]
+        bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-[#2222] via-[#8882] to-[#fff2]"
+        dangerouslySetInnerHTML={{ __html: gameInfo.pc_requirements }} />
 
-            <button
-              className="bg-blue-500 w-[18ch] font-semibold p-3 rounded-[4px]
-            shadow-[6px_6px_10px_-1px_rgba(0,0,0,0.6),6px_6px_10px_-1px_rgba(255,255,255,0.15)]
-            transition-all
-            hover:bg-blue-300"
-            >
-              Add to wishlist
-            </button>
-          </div>
         </div>
+
+        
 
         <div className="h-[2px] bg-[#fff9] mx-4 my-2"></div>
 
@@ -362,7 +387,7 @@ export default function Details() {
                 cx="80"
                 cy="80"
                 r="70"
-                stroke-linecap="round"
+                strokeLinecap="round"
                 style={{
                   strokeDasharray: `${(435 * gameInfo.rating) / 100}`,
                 }}
@@ -372,7 +397,7 @@ export default function Details() {
           </div>
         </div>
 
-        ----------aca abajo manda los comentarios---------
+        {/*----------aca abajo manda los comentarios---------*/}
 
       </div>
     </div>

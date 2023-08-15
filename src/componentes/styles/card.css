@@ -1,0 +1,37 @@
+.my-card-container{
+    
+}
+
+.my-card-image-container{
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+}
+
+.my-card-description{
+    position: absolute;
+    bottom: 0;
+    padding: 0 1rem;
+    padding-bottom: 10px;
+    max-height: 7.5rem;
+    background-color: #0005;
+    text-shadow: 2px 2px 3px #000b;
+    color: #fffb;
+    width: 100%;
+    transform: translateY(100%);
+    transition: all 0.1s ease-in-out;
+    width: 100%;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.my-card-image-container:hover .my-card-description{
+    transform: translateY(0);
+}
+
+.my-card-title{
+    z-index: 99;
+}
