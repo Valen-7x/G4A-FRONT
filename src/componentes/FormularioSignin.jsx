@@ -65,6 +65,7 @@ export default function FormularioSignin() {
         })
         localStorage.setItem('token', responseFromAPI.data.response.token);
         // localStorage.setItem('token', responseFromAPI.data.response.token);
+        localStorage.setItem('name', response.profileObj.name);
         localStorage.setItem('email', response.profileObj.email);
         localStorage.setItem('photo', response.profileObj.imageUrl);
         console.log(responseFromAPI);

@@ -82,6 +82,7 @@ export default function Details() {
     }
   };
 
+
   const handleImageClick = (image) => {
     setSelectedImage(image);
   };
@@ -161,11 +162,13 @@ export default function Details() {
               </button>
             </div>
           </div>
+
           <div
             className="hidden lg:flex flex-col text-left items-center py-[0.25rem] px-[0.5rem] text-white
           bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-[#2222] via-[#8882] to-[#fff2]
           lg:w-[40vw]"
           >
+
             <img
               src={propImages.header_image}
               className=""
@@ -176,7 +179,7 @@ export default function Details() {
 
           <div className="flex gap-5">
           <div className="flex-col">
-              <p className="flex items-center font-semibold text-[50px]">
+              <p className="flex items-center font-semibold text-[30px]">
                 Rating
               </p>
               <div className="flex gap-4 my-2 ml-5">
@@ -213,7 +216,7 @@ export default function Details() {
                   shadow-[inset_4px_4px_10px_-1px_rgba(0,0,0,0.6),inset_4px_4px_10px_-1px_rgba(255,255,255,0.15)]
                   flex justify-center items-center"
                 >
-                  <p className="font-bold text-[30px]">{gameInfo.rating}%</p>
+                  <p className="font-bold text-[20px]">{gameInfo.rating}%</p>
                 </div>
               </div>
               <svg
