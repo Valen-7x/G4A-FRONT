@@ -26,14 +26,6 @@ const router = createBrowserRouter([
                 path:'/',
                 element: <App/>
             },
-            {
-                path: "*",
-                element:  <NotFound/> ,
-              },
-            {
-                path: "/NotAllow",
-                element:  <NotAllowed/> ,
-              },
               {
                 path:'/games',
                 element: 
@@ -84,6 +76,14 @@ const router = createBrowserRouter([
             },
         ]
     },
+    {
+        path: "*",
+        element:  <NotFound/> ,
+      },
+    {
+        path: "/NotAllow",
+        element:  <NotAllowed/> ,
+      },
           
 ])
 export default router
