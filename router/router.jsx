@@ -6,6 +6,8 @@ import NotFound from "../src/componentes/NotFound";
 
 import Games from "../src/componentes/Games";
 import Details from "../src/componentes/Details";
+import Cart from "../src/pages/Cart";
+
 import Market from "../src/componentes/Market";
 import Register from "../src/componentes/Register";
 import SignIn from "../src/pages/SignIn";
@@ -24,14 +26,6 @@ const router = createBrowserRouter([
                 path:'/',
                 element: <App/>
             },
-            {
-                path: "*",
-                element:  <NotFound/> ,
-              },
-            {
-                path: "/NotAllow",
-                element:  <NotAllowed/> ,
-              },
               {
                 path:'/games',
                 element: 
@@ -42,6 +36,10 @@ const router = createBrowserRouter([
             {
                 path:'/details/:id',
                 element: <Details/>
+            },
+            {
+                path:'/cart',
+                element: <Cart/>
             },
             {
                 path:'/market',
@@ -78,6 +76,14 @@ const router = createBrowserRouter([
             },
         ]
     },
+    {
+        path: "*",
+        element:  <NotFound/> ,
+      },
+    {
+        path: "/NotAllow",
+        element:  <NotAllowed/> ,
+      },
           
 ])
 export default router

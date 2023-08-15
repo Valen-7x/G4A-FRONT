@@ -50,26 +50,32 @@ const Sidebar = () => {
   return (
     <>
       <div
-        className={`w-[90%] md:w-[40%] fixed lg:static top-0 rounded-2xl transform transition-transform lg:w-[15rem] h-full text-gray-400 backdrop-blur-sm bg-black/50 shadow-2xl lg:shadow-none z-50 ${
-          showSidebar ? "translate-x-0" : "-translate-x-[90%] lg:translate-x-0"
+        className={`w-[70%] md:w-[40%] fixed lg:static
+        top-0 left-0 rounded-2xl 
+        transform transition-transform 
+        lg:w-[15rem] h-full text-gray-400 
+        backdrop-blur-sm bg-black/50 shadow-2xl 
+        lg:shadow-none z-50 
+        ${
+          showSidebar ? "translate-x-0" : "-translate-x-[100%] lg:translate-x-0"
         } ${showSidebar ? "md:w-[40%]" : ""}`}
       >
         {/* Button mobile */}
         <button
           onClick={() => setShowSidebar(!showSidebar)}
-          className="lg:hidden fixed  bottom-4 right-4 bg-[#E58D27] p-[0.7rem] rounded-full text-xl"
+          className="lg:hidden fixed bottom-4 right-[-3rem] bg-[#E58D27] p-[0.7rem] rounded-full text-xl"
         >
           {showSidebar ? <RiCloseLine /> : <RiFilter3Line />}
         </button>
 
-        <div className="flex flex-col items-center mt-[1rem] gap-10 pr-[1rem] p-4 mb-4">
+        <div className="flex flex-col items-start mt-[1rem] gap-10 pl-[50%] translate-x-[-25%]">
         {isLoggedIn() ? (
               <div className="flex flex-col items-center text-center justify-center gap-2">
                 <img
                   src={localStorage.getItem('photo')}
                   className="w-[50px] mb-2 sm:m-0"
                 />
-                <div className="flex flex-col ms-3">
+                <div className="flex flex-col">
                   <p className="text-[15px] text-white font-bold">
                     {localStorage.getItem('name')}
                   </p>
@@ -81,21 +87,21 @@ const Sidebar = () => {
             to="/"
             className="flex gap-4 items-center transition-all duration-300 ease-in-out transform hover:scale-105"
           >
-            <img className="w-[2.5rem]" src="public\Vector.png" alt="" />{" "}
+            <img className="w-[2.5rem]" src="../../public/Vector.png" alt="" />{" "}
             <h4 className="text-white text-lg">Home</h4>
           </Link>
           <Link
             to="/register"
             className="flex gap-4 items-center transition-all duration-300 ease-in-out transform hover:scale-105"
           >
-            <img className="w-[2.5rem]" src="public\bi_people.svg" alt="" />
+            <img className="w-[2.5rem]" src="../../public/bi_people.svg" alt="" />
             <h4 className="text-white text-lg">Register</h4>
           </Link>
           <Link
             to="/signin"
             className="flex gap-4 items-center transition-all duration-300 ease-in-out transform hover:scale-105"
           >
-            <img className="w-[2.5rem]" src="public\bi_people.svg" alt="" />
+            <img className="w-[2.5rem]" src="../../public/bi_people.svg" alt="" />
             <h4 className="text-white text-lg">Sign In</h4>
           </Link>
           </>
@@ -106,35 +112,23 @@ const Sidebar = () => {
             to="/"
             className="flex gap-4 items-center transition-all duration-300 ease-in-out transform hover:scale-105"
           >
-            <img className="w-[2.5rem]" src="public\Vector.png" alt="" />{" "}
+            <img className="w-[2.5rem]" src="../../public/Vector.png" alt="" />{" "}
             <h4 className="text-white text-lg">Home</h4>
           </Link>
           <Link
             to="/games"
             className="flex gap-4 items-center transition-all duration-300 ease-in-out transform hover:scale-105"
           >
-            <img className="w-[2.5rem]" src="public\Group.svg" alt="" />
+            <img className="w-[2.5rem]" src="../../public/Group.svg" alt="" />
             <h4 className="text-white text-lg">Games</h4>
           </Link>
-          <Link
-            to="/market"
-            className="flex gap-4 items-center transition-all duration-300 ease-in-out transform hover:scale-105"
-          >
-            <img className="w-[2.5rem]" src="public\Vector (1).svg" alt="" />
-            <h4 className="text-white text-lg">Store</h4>
-          </Link>
-          <Link
-            to="/contact"
-            className="flex gap-4 items-center transition-all duration-300 ease-in-out transform hover:scale-105"
-          >
-            <img className="w-[2.5rem]" src="public\bi_people.svg" alt="" />
-            <h4 className="text-white text-lg">Contact</h4>
-          </Link>
+
+
           <Link
             to="/adminPanel"
             className="flex gap-4 items-center transition-all duration-300 ease-in-out transform hover:scale-105"
           >
-            <img className="w-[2.5rem]" src="public\bi_people.svg" alt="" />
+            <img className="w-[2.5rem]" src="../../public/bi_people.svg" alt="" />
             <h4 className="text-white text-lg">Admin Panel</h4>
           </Link>
           <button
@@ -144,12 +138,7 @@ const Sidebar = () => {
             )}
         </div>
             
-        <div className="pt-[2rem] lg:block hidden flex flex-col items-center">
-          <img
-            src="https://static.vecteezy.com/system/resources/previews/010/265/391/original/cute-3d-robot-fly-png.png"
-            alt=""
-          />
-        </div>
+        
       </div>
     </>
   );
