@@ -73,49 +73,52 @@ export default function PostComments() {
   }
 
   return (
-    <div className="overflow-hidden bg-[#171a1f] flex flex-row justify-center gap-16 w-full items-start py-6">
-      <div className="flex flex-col mt-6 w-24 shrink-0 items-center">
-        <img src={photo} className="w-20 h-24 rounded-lg shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)]" alt="User's Photo" />
-        {/* <div className="text-lg font-['Poppins'] font-medium text-white self-stretch ml-3 mr-4">DEEZEE</div> */}
-      </div>
-      <div className="self-end flex flex-col mt-6 gap-1 w-[767px]">
-        <form onSubmit={(e) => handleSubmit(e)} method="post" encType="multipart/form-data">
-          <div className="shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] overflow-hidden bg-[#21232f] relative flex flex-col mb-3 rounded-lg">
-            <div className="shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] overflow-hidden bg-[#21232f] relative flex flex-col justify-center h-24 shrink-0 px-8 rounded-lg">
-              <input
-                type="text"
-                ref={title}
-                name="title"
-                className="text-4xl font-['Poppins'] font-semibold text-white/50 ml-2 bg-transparent border-none outline-none"
-                placeholder="Write a short title for your review..."
+    <div className="overflow-hidden bg-[#111827] flex flex-row justify-center gap-10 w-full items-start py-6">
+      <div className="flex flex-row gap-4 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[#2222] via-[#8882] to-[#fff2] p-5 rounded-lg">
+        <div className="flex flex-col    items-center">
+          <img src={photo} className="w-[64px] h-[64px] rounded-lg " alt="User's Photo" />
+          {/* <div className="text-lg font-['Poppins'] font-medium text-white self-stretch ml-3 mr-4">DEEZEE</div> */}
+        </div>
+        <div className="">
+          <form onSubmit={(e) => handleSubmit(e)} method="post" encType="multipart/form-data">
+            <div className="shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] overflow-hidden bg-[#21232f] relative flex flex-col mb-3 rounded-lg ">
+              <div className="shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] overflow-hidden bg-[#334155] w-[500px] h-[64px] flex flex-row  gap-4 items-center p-2  rounded-lg">
+                <input type="text" ref={title} name="title" placeholder="Title" className="text-4xl font-['Poppins'] font-semibold text-white/100 ml-5 bg-transparent border-none outline-none" />
+              </div>
+            </div>
+            <div className="shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-[#334155] flex flex-col justify-center px-8 py-6 rounded-lg">
+              <textarea
+                ref={content}
+                name="content"
+                placeholder="Please share your opinion about this game! Other gamers might find it useful :)"
+                className="text-sm font-['Poppins'] text-left text-[#ccccee] ml-px bg-transparent resize-y"
               />
             </div>
-          </div>
-          <div className="shadow-[0px_4px_4px_0px_rgba(0,_0,_0,_0.25)] bg-[#21232f] flex flex-col mb-6 pt-8 pb-10 px-6 rounded-lg">
-            <textarea
-              type="text"
-              ref={content}
-              name="content"
-              className="text-lg font-['Poppins'] text-white/50 ml-6 h-[130px] bg-transparent border-none outline-none resize-y"
-              placeholder="Please tell us more about the product, other gamers might find it useful :)"
-            />
-          </div>
-          <div className="flex flex-row justify-between items-center ml-12 mr-8">
-            <div className="flex flex-row gap-3 items-center">
-              <button type="button" className={`w-16 h-16 bg-transparent border-none outline-none cursor-pointer ${yesRecommendation ? "selected" : ""}`} onClick={() => handleRecommendation(true)}>
-                <img src={yesRecommendation ? "https://file.rendit.io/n/3LdCsqemgLPHOwwE7U02.png" : "https://file.rendit.io/n/sVPcRaQIt2ZrfFdDIpRF.png"} className="w-full h-full" alt="Yes/true" />
-              </button>
-              <button type="button" className={`w-16 h-16 bg-transparent border-none outline-none cursor-pointer ${noRecommendation ? "selected" : ""}`} onClick={() => handleRecommendation(false)}>
-                <img src={noRecommendation ? "https://file.rendit.io/n/kVWHAFfmYKRkwsJ1BEeJ.png" : "https://file.rendit.io/n/FhvlJQqUKsIdgMt7GoMg.png"} className="w-full h-full" alt="No/false" />
-              </button>
+            <div className="flex flex-row justify-between mt-5 mx-2 items-center  ">
+              <div className="flex flex-row gap-0 items-center">
+                <button type="button" className={`cursor-pointer ${yesRecommendation ? "selected" : ""}`} onClick={() => handleRecommendation(true)}>
+                  <img
+                    src={yesRecommendation ? "https://file.rendit.io/n/BcPCfvQYPxFTdjUy9IQE.png" : "https://file.rendit.io/n/6gmV1BE7nsc2UzaxwmqB.png"}
+                    className="w-[50px] h-[50px]  rounded-lg"
+                    alt="Yes/true"
+                  />
+                </button>
+                <button type="button" className={`cursor-pointer ${noRecommendation ? "selected" : ""}`} onClick={() => handleRecommendation(false)}>
+                  <img
+                    src={noRecommendation ? "https://file.rendit.io/n/mxD3xAIxJPPTcaK3waS5.png" : "https://file.rendit.io/n/NUvWI0XEiaMdd3HaryY1.png"}
+                    className="w-[50px] h-[50px]  rounded-lg"
+                    alt="No/false"
+                  />
+                </button>
+              </div>
+              <div>
+                <Anchor onClick={handleSubmit} className="cursor-pointer">
+                  <img src="https://file.rendit.io/n/Tq3JUSa4q165CvO2JjzH.png" className="w-[40px] h-[40px] " alt="Submit" />
+                </Anchor>
+              </div>
             </div>
-            <div>
-              <Anchor onClick={handleSubmit} className="w-16 h-16 bg-transparent border-none outline-none cursor-pointer">
-                <img src="https://file.rendit.io/n/Tq3JUSa4q165CvO2JjzH.png" className="w-full h-full" alt="Submit" />
-              </Anchor>
-            </div>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     </div>
   );
