@@ -32,7 +32,6 @@ export default function FormularioSignin() {
         localStorage.setItem("token", response.data.response.token);
         localStorage.setItem("user", JSON.stringify(response.data.response.user));
         localStorage.setItem("photo", response.data.response.photo);
-        // localStorage.setItem("user_id", response.data.response._id);
         navigate("/");
       } else {
         alert("Authentication failed!");
@@ -66,11 +65,9 @@ export default function FormularioSignin() {
         });
         localStorage.setItem("token", responseFromAPI.data.response.token);
         // localStorage.setItem('token', responseFromAPI.data.response.token);
+        localStorage.setItem("name", response.profileObj.name);
         localStorage.setItem("email", response.profileObj.email);
         localStorage.setItem("photo", response.profileObj.imageUrl);
-        localStorage.setItem("id", responseFromAPI.data.response._id);
-
-        // localStorage.setItem("user_id", response.data.response._id);
         console.log(responseFromAPI);
         navigate("/");
       } else {

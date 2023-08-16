@@ -2,16 +2,23 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../src/layouts/Main";
 import App from "../src/App";
 import NotAllowed from "../src/componentes/NotAllowed";
+import NotAllowedProtected from "./NotAllowedProtected";
+import ProtectedLoger from "./ProtectedLoger";
+import NotFound from "../src/componentes/NotFound";
 import Games from "../src/componentes/Games";
-import Details from "../src/componentes/Details";
+import ProtectedLogin from "./ProtectedLogin";
+import Cart from "../src/pages/Cart";
+
+import Market from "../src/componentes/Market";
 import Register from "../src/componentes/Register";
 import SignIn from "../src/pages/SignIn";
 import VerifyCode from "../src/componentes/VerifyCode";
 import ProtectedRouteUser from "../router/protectedUser";
 import ProtectedRouteNotUser from "../router/protectedNotUser";
-import PostComments from "../src/componentes/PostComments";
-import GamePage from "../src/pages/Comments";
-import ViewComments from "../src/componentes/ViewComments";
+
+import AdminPanel from "../src/componentes/AdminPanel";
+import Detail from "../src/pages/Detail";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -22,20 +29,28 @@ const router = createBrowserRouter([
         element: <App />,
       },
       {
-        path: "/not-allow",
-        element: <NotAllowed />,
-      },
-      {
         path: "/games",
         element: <Games />,
       },
       {
         path: "/details/:id",
-        element: <Details />,
+        element: <Detail />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
+      },
+      {
+        path: "/market",
+        element: <Market />,
       },
       {
         path: "/register",
-        element: <Register />,
+        element: (
+          <ProtectedRouteUser>
+            <Register />
+          </ProtectedRouteUser>
+        ),
       },
       {
         path: "/verifyAccount",
@@ -47,17 +62,29 @@ const router = createBrowserRouter([
       },
       {
         path: "/signin",
-        element: <SignIn />,
+        element: (
+          <ProtectedRouteUser>
+            <SignIn />
+          </ProtectedRouteUser>
+        ),
       },
       {
-        path: "/detalles/:id",
-        element: <GamePage />,
-      },
-      {
-        path: "/viewComments",
-        element: <ViewComments />,
+        path: "/adminPanel",
+        element: (
+          <ProtectedRouteNotUser>
+            <AdminPanel />
+          </ProtectedRouteNotUser>
+        ),
       },
     ],
+  },
+  {
+    path: "*",
+    element: <NotFound />,
+  },
+  {
+    path: "/NotAllow",
+    element: <NotAllowed />,
   },
 ]);
 export default router;

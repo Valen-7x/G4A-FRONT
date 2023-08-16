@@ -61,7 +61,7 @@ export default function Index() {
           </b>
         </h1>
         <div className="flex md:grid-cols-2 xl:flex items-center justify-around lg:justify-between flex-wrap gap-5">
-        {games.slice(0, 3).map((game) => (
+        {games.slice(0, 5).map((game) => (
     <Card
       key={game._id}
       img={game.header_image}
@@ -73,8 +73,14 @@ export default function Index() {
   ))}
           <Link to="/games" className="relative">
             <img
-              src="https://s3-alpha-sig.figma.com/img/5d71/7c4a/331cc65c47447ded390aec1122aaf642?Expires=1691971200&Signature=YEMfTCCHpvnzyeQpkeG4wNzhYHmS8t6Os4izMifoaATtUB8-eHgMPtmI8lGc2s8ohq2tTpIV8h-HokE7KOPO7PB1eB6wDmo8FDqYAhEll8jr0VmKcV9aJqpRXGFf9Y7c7CMPKaJ1K481H7OvDUrW4TmGji5LbgWATWtmtkBCcgk9mJGEi~JpAik8ZjWKRtNDqiXaH3j60EyztBqss2jNRb-ZmpJFC9Cc3roPiCsF1Vlx~ABtm8IXSDzO-4bnY~xqYIut9DvKRItCb4V9mybDzakGSsXXOqpN5co9EKqyqu1aeQ5L-xhp3aX26KZ5Xf6ZjFkqJqk6FzURmIolETHKaw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
-              className="relative w-[200px] xl:w-[12rem] h-72 lg:h-64 object-cover rounded-2xl"
+              src="https://s3-alpha-sig.figma.com/img/5d71/7c4a/331cc65c47447ded390aec1122aaf642?Expires=1693180800&Signature=htvWl1H92myfuD0bDJrxe98-aOMoEIqMPoAYVFoyU5E94ZWdqbcAUBxHo-Vj2Rs6qW-YYQ9hAo6nuzXrbKn8w-oHeDQMYAHLozgjl-qXyQSstVCQLETOzsqwxg7eEjk2fQmOtv3xEgTsJsnHIuMm8SJmG63JRwvIoGHa2GUYwI98k6LF5DGd7TDMaBULwFEWdrRZTCRFG0SVa~-~0VCGmF~gzqB4NbGYuOiLgCsqPtAiZqfDljFsvw9GTQOBqDKhjnxmld5K5-er1kgEIvAlzEWZzyu-My9wRod-djBRGpsoDRMt8fy9XIJaMkYoYl7uBAVhRrqGDE-1ZYM2cImvVg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+              className="my-card-container
+              bg-[#362C29]/50 flex flex-col rounded-sm 
+              w-[28rem]
+              lg:w-[15rem]
+              h-[9rem]
+              transition-transform duration-100 transform 
+              hover:shadow-lg"
             />
             <b>
               <h3 className="absolute text-white top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-3xl object-cover rounded-2xl">

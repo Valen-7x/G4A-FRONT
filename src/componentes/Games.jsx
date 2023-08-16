@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Sidebar from "./Sidebar";
 import axios from "axios";
 import Search from "./Search";
@@ -7,7 +7,7 @@ import Card from "./Card";
 export default function Games() {
   const [games, setGames] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [gamesPerPage] = useState(10);
+  const [gamesPerPage] = useState(12);
   const [selectedCategories, setSelectedCategories] = useState(new Set());
   const [searchText, setSearchText] = useState("");
   const [cart, setCart] = useState([]); // Agregamos el estado searchText aquí
@@ -84,16 +84,18 @@ export default function Games() {
               className={`mr-2 px-4 py-2 rounded-lg ${
                 selectedCategories.has(category) ||
                 (selectedCategories.size === 0 && category === "All")
-                  ? "bg-blue-600 text-white"
+                  ? "bg-orange-600 text-white"
                   : "bg-gray-700 text-white"
-              } hover:bg-orange-600 hover:text-white hover:cursor-pointer`}
+              } hover:bg-orange-400 hover:text-white hover:cursor-pointer`}
             >
               {category}
             </button>
           ))}
         </div>
 
-        <div className="flex mt-[2rem] md:grid-cols-2 xl:flex items-center justify-around lg:justify-between flex-wrap gap-5">
+        
+
+        <div className="flex mt-[2rem] md:grid-cols-2 xl:flex items-center justify-around flex-wrap gap-3">
           {currentGames.map((game) => (
             <Card
               key={game.id}
@@ -102,21 +104,35 @@ export default function Games() {
               title={game.name}
               category={game.genres[0].description}
               price={game.price}
+              descr={game.short_description}
               addToCart={addToCart} // Pasar la función addToCart como prop
             />
           ))}
         </div>
         <div className="flex justify-center mt-4">
+        <button
+            onClick={() => paginate(currentPage + 1)}
+            className={`px-4 py-2 rounded-lg ${
+              currentPage === Math.ceil(filteredGames.length / gamesPerPage)
+                ? "bg-gray-700 text-gray-700 cursor-not-allowed"
+                : "bg-orange-600 text-white"
+            }`}
+            disabled={
+              currentPage === Math.ceil(filteredGames.length / gamesPerPage)
+            }
+          >
+            Prev
+          </button>
           {Array.from(
             { length: Math.ceil(filteredGames.length / gamesPerPage) },
             (_, index) => (
               <button
                 key={index}
                 onClick={() => paginate(index + 1)}
-                className={`mr-2 px-4 py-2 rounded-lg ${
+                className={`mx-1 px-4 py-2 rounded-lg text-white ${
                   currentPage === index + 1
-                    ? "bg-blue-500 text-white"
-                    : "bg-gray-300 text-gray-700"
+                    ? "bg-orange-500"
+                    : "bg-gray-700"
                 }`}
               >
                 {index + 1}
@@ -127,8 +143,8 @@ export default function Games() {
             onClick={() => paginate(currentPage + 1)}
             className={`px-4 py-2 rounded-lg ${
               currentPage === Math.ceil(filteredGames.length / gamesPerPage)
-                ? "bg-gray-300 text-gray-700 cursor-not-allowed"
-                : "bg-blue-500 text-white"
+                ? "bg-gray-700 text-gray-700 cursor-not-allowed"
+                : "bg-orange-600 text-white"
             }`}
             disabled={
               currentPage === Math.ceil(filteredGames.length / gamesPerPage)
