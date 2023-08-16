@@ -112,7 +112,7 @@ export default function AdminPanel() {
     <div className="flex w-full h-screen items-center justify-center bg-[#111827]">
         <div className="flex flex-wrap flex-col justify-start items-center w-screen h-screen " >
         <Sidebar/>
-        <div className="flex justify-center items-center bg-[#080C13] rounded-lg py-4 px-12 w-3/5 h-1/2">
+        <div className="flex justify-center items-center ml-[5rem] bg-[#080C13] rounded-lg py-4 px-12 w-3/5 h-1/2">
         <div className="flex flex-col justify-center items-center" >
         <h1 className="text-white font-bold text-xl">Admin Panel</h1>
         {/* <p className="text-amber-500 font-bold text-lg">Select Game</p> */}

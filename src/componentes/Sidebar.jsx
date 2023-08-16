@@ -132,7 +132,7 @@ const Sidebar = () => {
           </Link>
           <button
                   onClick={signout}
-                  className=" transition-all flex gap-4 duration-300 ease-in-out transform hover:scale-105 text-white text-lg">
+                  className="p-3 transition-all flex gap-4 duration-300 ease-in-out transform hover:scale-105 text-white text-lg">
                      <img src="public\icon-park-twotone_blocks-and-arrows.svg" className='w-[2rem]' alt="" />Log Out</button>
          </>
             )}
