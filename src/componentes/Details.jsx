@@ -38,6 +38,11 @@ export default function Details() {
     rating_neg: 0,
     rating: 0,
   });
+  const game_id = location.pathname.split("/")[2];
+  console.log(game_id, "GAME ID details");
+  useEffect(() => {
+    localStorage.setItem("game_id", game_id);
+  }, [game_id]);
 
   useEffect(() => {
     fetchData();
@@ -232,14 +237,14 @@ export default function Details() {
                 {isItemInCart ? "Remove from Cart" : `ARS $${gameInfo.price}`}
               </button>
 
-              <button
+              {/* <button
                 className="bg-blue-500 w-[18ch] font-semibold p-3 rounded-[4px]
               shadow-[6px_6px_10px_-1px_rgba(0,0,0,0.6),6px_6px_10px_-1px_rgba(255,255,255,0.15)]
               transition-all
               hover:bg-blue-300"
               >
                 Add to wishlist
-              </button>
+              </button> */}
             </div>
 
             <div className="flex justify-between">

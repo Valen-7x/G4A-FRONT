@@ -10,7 +10,7 @@ export default function ViewComments() {
   const [yesRecommendation, setYesRecommendation] = useState(false);
   const [noRecommendation, setNoRecommendation] = useState(false);
   const [editingCommentId, setEditingCommentId] = useState(null);
-  const [commentRecommendations, setCommentRecommendations] = useState({}); // Object to track
+  const [commentRecommendations, setCommentRecommendations] = useState({});
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleRecommendation = (commentId, isRecommended) => {

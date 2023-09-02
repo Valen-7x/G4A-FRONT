@@ -68,6 +68,8 @@ export default function FormularioSignin() {
         localStorage.setItem("name", response.profileObj.name);
         localStorage.setItem("email", response.profileObj.email);
         localStorage.setItem("photo", response.profileObj.imageUrl);
+        localStorage.setItem("id", responseFromAPI.data.response._id);
+
         console.log(responseFromAPI);
         navigate("/");
       } else {
